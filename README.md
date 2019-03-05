@@ -7,7 +7,7 @@ I've tested this on [Docker for Desktop (Windows 10)](https://www.docker.com/pro
 
 I recommend using [Visual Studio Code](https://code.visualstudio.com/) with the Kubernetes extension.
 
-This chart uses a very slightly modified version of [uPortal-start](https://github.com/markmclaren/uPortal-start/tree/kubernetes_proofofconcept).  The modified version defaults to including support for accessing MariaDB and adds a new Docker image with some addition tools used to debug database and networking in Kubernetes.
+This chart uses a very slightly modified version of [uPortal-start](https://github.com/markmclaren/uPortal-start/tree/kubernetes_proofofconcept).  The modified version defaults to including support for accessing MariaDB and adds a new Docker image with some additional tools used to debug database and networking in Kubernetes (mysql-client, bind-tools and nmap).
 
 The *PORTAL_HOME* environment variable and config files (global.properties, uPortal.properties, notification.properties) are set via a Kubernetes ConfigMap.  The uPortal instance is currently congfigured not to use CAS - because the version of CAS in uPortal-demo does not support external configuration (later versions do).
 
