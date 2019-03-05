@@ -47,7 +47,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   # The ConfigMap containing the value you want to assign to PORTAL_HOME
-                  name: uportal-config
+                  name: {{ include "uportal-demo-k8s.fullname" . }}
                   # Specify the key associated with the value
                   key: portal.home
           resources:
