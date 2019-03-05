@@ -1,5 +1,5 @@
 # uPortal-start-helm
-Helm chart to install uPortal-demo on Kubernetes.
+[Helm chart](https://helm.sh/) to install uPortal-demo on Kubernetes.
 
 > :warning: This is a proof of concept - this is my first Helm chart - I'm sure there is plenty of room for improvement.
 
