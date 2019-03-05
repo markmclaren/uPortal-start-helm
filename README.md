@@ -1,15 +1,16 @@
 # uPortal-start-helm
 Helm chart to install uPortal-demo on Kubernetes.
 
-> :warning: This is a proof of concept - I am not very experienced with Kubernetes yet and this is my first Helm chart - so I'm sure there is plenty of room for improvement.
+> :warning: This is a proof of concept - this is my first Helm chart - I'm sure there is plenty of room for improvement.
 
 I've tested this on [Docker for Desktop (Windows 10)](https://www.docker.com/products/docker-desktop) with Kubernetes installed and in [Azure Kubernetes Service](https://azure.microsoft.com/en-gb/services/kubernetes-service/).
 
 I recommend using [Visual Studio Code](https://code.visualstudio.com/) with the Kubernetes extension.
 
-Uses a very slightly modified version of [uPortal-start](https://github.com/markmclaren/uPortal-start/tree/kubernetes_proofofconcept).  The modified version defaults to including support for accessing MariaDB and adds a new Docker image with some addition tools used to debug database and networking in Kubernetes.
+This chart uses a very slightly modified version of [uPortal-start](https://github.com/markmclaren/uPortal-start/tree/kubernetes_proofofconcept).  The modified version defaults to including support for accessing MariaDB and adds a new Docker image with some addition tools used to debug database and networking in Kubernetes.
 
-The PORTAL_HOME environment variable and config files are set via a Kubernetes ConfigMap.  
+The *PORTAL_HOME* environment variable and config files (global.properties, uPortal.properties, notification.properties) are set via a Kubernetes ConfigMap.  The uPortal instance is currently congfigured not to use CAS - because the version of CAS in uPortal-demo does not support external configuration (later versions do).
+
 Also the Docker image command line is detemined by the Helm chart values.yaml.
 
 ## Installation instructions
@@ -18,6 +19,8 @@ Currently I have deployed my new Docker uportal-demo-k8s image to [markmclaren/u
 
 I am assuming you have a working Kubernetes cluster with [Helm/Tiller](https://helm.sh/docs/install/) installed.
 
+I am also assuming you have a working Ingress controller installed (I use the [NGINX Ingress Controller]( https://kubernetes.github.io/ingress-nginx/deploy/) be aware it is a two stage install.)  This is necessary so that an externally accessible URL is available.
+
 ```
 git clone https://github.com/markmclaren/uPortal-start-helm
 ```
@@ -25,4 +28,12 @@ Install the MariaDB dependency - this will download a tgz file to the charts dir
 ```
 cd uportal-demo-k8s
 helm dependency update
+```
+
+Make sure you have your Kubernetes context set correctly (you can use VSCode, [kubectx](https://github.com/ahmetb/kubectx) or [kubectxwin](https://github.com/thomasliddledba/kubectxwin) to do this).
+
+Then whilst inside the **uportal-demo-k8s** you should be able to deploy uPortal-start with a supporting MariaDB database by doing:
+
+```
+helm install .
 ```
