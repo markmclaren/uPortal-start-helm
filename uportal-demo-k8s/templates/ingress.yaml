@@ -34,11 +34,11 @@ spec:
     - host: {{ . | quote }}
       http:
         paths:
-	{{- range $ingressPaths }}
+        {{- range $ingressPaths }}
           - path: {{ . }}
             backend:
               serviceName: {{ $fullName }}
               servicePort: 8080
-	{{- end }}
+        {{- end }}
   {{- end }}
 {{- end }}
