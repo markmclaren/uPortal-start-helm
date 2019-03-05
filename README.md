@@ -3,7 +3,7 @@
 
 > :warning: This is a proof of concept - this is my first Helm chart - I'm sure there is plenty of room for improvement.
 
-I've tested this on [Docker for Desktop (Windows 10)](https://www.docker.com/products/docker-desktop) with Kubernetes installed and in [Azure Kubernetes Service](https://azure.microsoft.com/en-gb/services/kubernetes-service/).
+I've tested this on [Docker for Desktop (Windows 10)](https://www.docker.com/products/docker-desktop) with Kubernetes installed and in [Azure Kubernetes Service](https://azure.microsoft.com/en-gb/services/kubernetes-service/). Note: I needed to increase the default memory available to a Docker image in Windows 10 (Settings > Advanced > Memory Slider up to 4096 MB).
 
 I recommend using [Visual Studio Code](https://code.visualstudio.com/) with the Kubernetes extension.
 
