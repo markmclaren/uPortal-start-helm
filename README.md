@@ -9,7 +9,7 @@ I've tested this on [Docker for Desktop (Windows 10)](https://www.docker.com/pro
 
 Note: I needed to increase the default memory available to a Docker image in Windows 10 (Settings > Advanced > Memory Slider up to 4096 MB).
 
-I recommend using [Visual Studio Code](https://code.visualstudio.com/) with the Kubernetes extension.
+I recommend using [Visual Studio Code](https://code.visualstudio.com/) with the [Kubernetes extension](https://code.visualstudio.com/docs/azure/kubernetes).
 
 This chart uses a very slightly modified version of [uPortal-start](https://github.com/markmclaren/uPortal-start/tree/kubernetes_proofofconcept).  The modified version defaults to including support for accessing MariaDB and adds a new Docker image with some additional tools used to debug database and networking in Kubernetes (mysql-client, bind-tools and nmap).
 
