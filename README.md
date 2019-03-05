@@ -62,7 +62,7 @@ http://\<EXTERNAL-IP>:8080/uPortal
 
 ## Using Helm to manage deployment
 
-You can use Helm to list deployed services using:
+You can use Helm to list deployed releases using:
 
 ```
 helm ls
@@ -71,13 +71,13 @@ helm ls
 You can check the status of the deployment with:
 
 ```
-helm status <service-name>
+helm status <release-name>
 ```
 
-You can then undeploy the service using:
+You can then undeploy the release using:
 
 ```
-helm delete <service-name>
+helm delete <release-name>
 ```
 
 ### Troubleshooting
