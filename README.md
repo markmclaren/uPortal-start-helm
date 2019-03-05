@@ -13,9 +13,9 @@ I recommend using [Visual Studio Code](https://code.visualstudio.com/) with the 
 
 This chart uses a very slightly modified version of [uPortal-start](https://github.com/markmclaren/uPortal-start/tree/kubernetes_proofofconcept).  The modified version defaults to including support for accessing MariaDB and adds a new Docker image with some additional tools used to debug database and networking in Kubernetes (mysql-client, bind-tools and nmap).
 
-The *PORTAL_HOME* environment variable and config files (global.properties, uPortal.properties, notification.properties) are set via a Kubernetes ConfigMap.  The uPortal instance is currently congfigured not to use CAS - because the version of CAS in uPortal-demo does not support external configuration (later versions do).
+The *PORTAL_HOME* environment variable and config files (global.properties, uPortal.properties, notification.properties) are set via a Kubernetes ConfigMap.  The uPortal instance is currently configured not to use CAS - because the version of CAS in uPortal-demo does not support external configuration (later versions do).
 
-Also the Docker image command line is detemined by the Helm chart values.yaml.
+Also the Docker image command line is determined by the Helm chart values.yaml.
 
 ## Installation instructions
 
@@ -30,7 +30,7 @@ I am assuming you have a working Kubernetes cluster with [Helm/Tiller](https://h
 ```
 git clone https://github.com/markmclaren/uPortal-start-helm
 ```
-Install the MariaDB dependency - this will download a tgz file to the charts directory.
+Install the MariaDB dependency - this will download a **tgz** file to the charts directory.
 ```
 cd uportal-demo-k8s
 helm dependency update
