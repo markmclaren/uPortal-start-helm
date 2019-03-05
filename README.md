@@ -37,3 +37,32 @@ Then whilst inside the **uportal-demo-k8s** you should be able to deploy uPortal
 ```
 helm install .
 ```
+
+You can monitor the start up process using VSCode.  After a little while you should hopefully be able to access your externally accessible IP address by running:
+
+```
+kubectl get svc
+```
+
+The EXTERNAL-IP of the LoadBalancer should give you the accessible URL.  You Tomcat installation should be accessible at:
+
+http://\<EXTERNAL-IP>:8080/
+
+and uPortal at:
+
+http://\<EXTERNAL-IP>:8080/uPortal
+
+### Troubleshooting
+
+VSCode/Kubernetes integration has some really nice features for troubleshooting.
+
+* Is the ideal way to monitor the start up process of your helm chart.
+* You can also easily access and follow logs.
+* You can create a terminal on the running machines.
+
+### Work in progress
+
+What this proof of concept does not yet cover:
+
+* Using [Helm secrets](https://github.com/futuresimple/helm-secrets) for encrypting the values in the ConfigMap
+* HTTPS access, maybe using [kube-lego](https://github.com/jetstack/kube-lego)
