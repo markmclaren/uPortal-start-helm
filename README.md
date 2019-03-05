@@ -38,7 +38,7 @@ helm dependency update
 
 Make sure you have your Kubernetes context set correctly (you can use VSCode, [kubectx](https://github.com/ahmetb/kubectx) or [kubectxwin](https://github.com/thomasliddledba/kubectxwin) to do this).
 
-Then whilst inside the **uportal-demo-k8s** you should be able to deploy uPortal-start with a supporting MariaDB database by doing:
+Then whilst inside the **uportal-demo-k8s** directory you should be able to deploy uPortal-start with a supporting MariaDB database by doing:
 
 ```
 helm install .
