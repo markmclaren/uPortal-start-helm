@@ -44,6 +44,8 @@ Then whilst inside the **uportal-demo-k8s** you should be able to deploy uPortal
 helm install .
 ```
 
+If not specified Helm will automatically generate a release name (e.g. animal based like *[ugly-monkey](https://github.com/helm/helm/issues/4089)*)
+
 You can monitor the start up process using VSCode.  After a little while you should hopefully be able to access your externally accessible IP address by running:
 
 ```
