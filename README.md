@@ -52,6 +52,26 @@ and uPortal at:
 
 http://\<EXTERNAL-IP>:8080/uPortal
 
+## Using Helm to manage deployment
+
+You can use Helm to list deployed services using:
+
+```
+helm ls
+```
+
+You can check the status of the deployment with:
+
+```
+helm status <service-name>
+```
+
+You can then undeploy the service using:
+
+```
+helm delete <service-name>
+```
+
 ### Troubleshooting
 
 VSCode/Kubernetes integration has some really nice features for troubleshooting.
