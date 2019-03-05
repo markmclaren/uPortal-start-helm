@@ -284,4 +284,4 @@ data:
 kind: ConfigMap
 metadata:
   creationTimestamp: null
-  name: uportal-config
+  name: {{ include "uportal-demo-k8s.fullname" . }}
