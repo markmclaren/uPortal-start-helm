@@ -1,7 +1,7 @@
 # uPortal-start-helm
 Helm chart to install uPortal-demo on Kubernetes (Proof of concept)
 
-I've tested this on [Docker for Desktop (Windows 10)](https://www.docker.com/products/docker-desktop) and in [Azure Kubernetes Service](https://azure.microsoft.com/en-gb/services/kubernetes-service/).
+I've tested this on [Docker for Desktop (Windows 10)](https://www.docker.com/products/docker-desktop) with Kubernetes installed and in [Azure Kubernetes Service](https://azure.microsoft.com/en-gb/services/kubernetes-service/).
 
 I recommend using [Visual Studio Code](https://code.visualstudio.com/) with the Kubernetes extension.
 
