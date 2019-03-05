@@ -15,11 +15,13 @@ Also the Docker image command line is detemined by the Helm chart values.yaml.
 
 ## Installation instructions
 
-Currently I have deployed my new Docker uportal-demo-k8s image to [markmclaren/uportal-demo-k8s](https://hub.docker.com/r/markmclaren/uportal-demo-k8s) on DockerHub.  This is because I believe Helm requires that you acquire your Docker image from a repository (this could be a private repository e.g. an instance of ([Azure Container Registry](https://azure.microsoft.com/en-gb/services/container-registry/)).
+Currently I have deployed my new Docker uportal-demo-k8s image to [markmclaren/uportal-demo-k8s](https://hub.docker.com/r/markmclaren/uportal-demo-k8s) on DockerHub.  This is because I believe Helm requires that you acquire your Docker image from a repository (this could be a private repository e.g. an instance of [Azure Container Registry](https://azure.microsoft.com/en-gb/services/container-registry/)).
 
-I am assuming you have a working Kubernetes cluster with [Helm/Tiller](https://helm.sh/docs/install/) installed.
+#### Prerequisites.
 
-I am also assuming you have a working Ingress controller installed (I use the [NGINX Ingress Controller]( https://kubernetes.github.io/ingress-nginx/deploy/) be aware it is a two stage install.)  This is necessary so that an externally accessible URL is available.
+I am assuming you have a working Kubernetes cluster with [Helm/Tiller](https://helm.sh/docs/install/) installed.  I am also assuming you have a working Ingress controller installed (I use the [NGINX Ingress Controller]( https://kubernetes.github.io/ingress-nginx/deploy/) be aware it is a two stage install.)  This is necessary so that an externally accessible URL is available.
+
+### Installation
 
 ```
 git clone https://github.com/markmclaren/uPortal-start-helm
