@@ -52,11 +52,11 @@ You can monitor the start up process using VSCode.  After a little while you sho
 kubectl get svc
 ```
 
-The EXTERNAL-IP of the LoadBalancer should give you the accessible URL.  You Tomcat installation should be accessible at:
+The EXTERNAL-IP of the LoadBalancer should give you the accessible URL.  Tomcat should be accessible at:
 
 http://\<EXTERNAL-IP>:8080/
 
-and uPortal at:
+and uPortal accessible at:
 
 http://\<EXTERNAL-IP>:8080/uPortal
 
