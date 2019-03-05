@@ -3,6 +3,8 @@
 
 > :warning: This is a proof of concept - this is my first Helm chart - I'm sure there is plenty of room for improvement.
 
+In the first instance MariaDB was arbitrarily chosen - as something supported by uPortal and numerous cloud providers.  Also it was my intention not to stray to far from the spirit of [uPortal-start](https://github.com/Jasig/uPortal-start/).
+
 I've tested this on [Docker for Desktop (Windows 10)](https://www.docker.com/products/docker-desktop) with Kubernetes installed and in [Azure Kubernetes Service](https://azure.microsoft.com/en-gb/services/kubernetes-service/). Note: I needed to increase the default memory available to a Docker image in Windows 10 (Settings > Advanced > Memory Slider up to 4096 MB).
 
 I recommend using [Visual Studio Code](https://code.visualstudio.com/) with the Kubernetes extension.
@@ -84,7 +86,9 @@ VSCode/Kubernetes integration has some really nice features for troubleshooting.
 
 ### Work in progress
 
-What this proof of concept does not yet cover:
+This is a proof of concept, I have more to consider in the future:
 
 * Using [Helm secrets](https://github.com/futuresimple/helm-secrets) for encrypting the values in the ConfigMap
 * HTTPS access, maybe using [kube-lego](https://github.com/jetstack/kube-lego)
+* Consider Kubernetes specific deployment options - e.g. [a sidecar full of WARs](https://github.com/kubernetes/examples/tree/master/staging/javaweb-tomcat-sidecar)
+* Consider scaling, session affinity etc.
