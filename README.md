@@ -54,11 +54,11 @@ kubectl get svc
 
 The EXTERNAL-IP of the LoadBalancer should give you the accessible URL.  Tomcat should be accessible at:
 
-http://\<EXTERNAL-IP>:8080/
+http://\<EXTERNAL-IP>/
 
 and uPortal accessible at:
 
-http://\<EXTERNAL-IP>:8080/uPortal
+http://\<EXTERNAL-IP>/uPortal
 
 ## Using Helm to manage deployment
 

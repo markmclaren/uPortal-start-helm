@@ -18,7 +18,7 @@ spec:
   # Single Service Ingress
   backend:
     serviceName: {{ $fullName }}
-    servicePort: 8080
+    servicePort: 80
 {{- if .Values.ingress.tls }}
   tls:
   {{- range .Values.ingress.tls }}
@@ -38,7 +38,7 @@ spec:
           - path: {{ . }}
             backend:
               serviceName: {{ $fullName }}
-              servicePort: 8080
+              servicePort: 80
         {{- end }}
   {{- end }}
 {{- end }}
