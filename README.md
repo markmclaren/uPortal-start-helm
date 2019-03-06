@@ -97,4 +97,4 @@ This is a proof of concept, I have more to consider in the future:
 * Using [Helm secrets](https://github.com/futuresimple/helm-secrets) for encrypting the values in the ConfigMap
 * HTTPS access, maybe using [kube-lego](https://github.com/jetstack/kube-lego)
 * Consider Kubernetes specific deployment options - e.g. [a sidecar full of WARs](https://github.com/kubernetes/examples/tree/master/staging/javaweb-tomcat-sidecar)
-* Consider making it production ready topics, scaling, session affinity, monitoring etc.
+* Consider "production ready" topics, scaling, clustering, session affinity, monitoring etc.
