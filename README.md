@@ -51,16 +51,16 @@ If not specified Helm will automatically generate a release name (e.g. animal ba
 You can monitor the start up process using VSCode.  After a little while you should hopefully be able to access your externally accessible IP address by running:
 
 ```
-kubectl get svc
+kubectl get ingress
 ```
 
-The EXTERNAL-IP of the LoadBalancer should give you the accessible URL.  Tomcat should be accessible at:
+The ADDRESS of the Ingress should give you the accessible URL.  Tomcat should be accessible at:
 
-http://\<EXTERNAL-IP>/
+http://\<ADDRESS>/
 
 and uPortal accessible at:
 
-http://\<EXTERNAL-IP>/uPortal
+http://\<ADDRESS>/uPortal
 
 ## Using Helm to manage deployment
 
