@@ -57,7 +57,7 @@ spec:
         configMap:
           # Provide the name of the ConfigMap containing the files you want
           # to add to the container
-          name: uportal-config
+          name: {{ include "uportal-demo-k8s.fullname" . }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
