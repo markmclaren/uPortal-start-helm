@@ -3,7 +3,9 @@
 
 > :warning: This is a proof of concept - this is my first Helm chart - I'm sure there is plenty of room for improvement.
 
-In the first instance MariaDB was arbitrarily chosen as something supported by uPortal and numerous cloud providers.  Also it was my intention not to stray too far from the spirit of [uPortal-start](https://github.com/Jasig/uPortal-start/).
+In the first instance MariaDB was arbitrarily chosen as something supported by uPortal and numerous cloud providers.  Using MariaDB/MySQL also means it is possible to move to a "managed service" MySQL instance (using [Open Service Broker for Azure](https://osba.sh/)).
+
+It was also my intention not to stray too far from the spirit of [uPortal-start](https://github.com/Jasig/uPortal-start/).
 
 I've tested this on [Docker for Desktop (Windows 10)](https://www.docker.com/products/docker-desktop) with Kubernetes installed locally and on [Azure Kubernetes Service](https://azure.microsoft.com/en-gb/services/kubernetes-service/) in the cloud. 
 
