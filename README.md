@@ -32,10 +32,9 @@ I am assuming you have a working Kubernetes cluster with [Helm/Tiller](https://h
 ```
 git clone https://github.com/markmclaren/uPortal-start-helm
 ```
-Install the MariaDB dependency - this will download a **tgz** file to the charts directory.
+Install the MariaDB dependency - this will download a **tgz** file to the charts directory inside uportal-demo-k8s.
 ```
-cd uportal-demo-k8s
-helm dependency update
+helm dependency update uportal-demo-k8s
 ```
 
 Make sure you have your Kubernetes context set correctly (you can use VSCode, [kubectx](https://github.com/ahmetb/kubectx) or [kubectxwin](https://github.com/thomasliddledba/kubectxwin) to do this).
@@ -43,7 +42,7 @@ Make sure you have your Kubernetes context set correctly (you can use VSCode, [k
 Then whilst inside the **uportal-demo-k8s** directory you should be able to deploy uPortal-start with a supporting MariaDB database by doing:
 
 ```
-helm install .
+helm install uportal-demo-k8s --generate-name
 ```
 
 If not specified Helm will automatically generate a release name (e.g. animal based like *[ugly-monkey](https://github.com/helm/helm/issues/4089)*)

@@ -14,34 +14,35 @@ nameOverride: ""
 fullnameOverride: ""
 
 service:
-  type: ClusterIP
-  # type: LoadBalancer
+  # type: ClusterIP
+  type: LoadBalancer
   port: 80
 
 ingress:
   enabled: true
   annotations:
     kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/app-root: /uPortal
     # kubernetes.io/tls-acme: "true"
-  #paths: ['/']
-  #hosts:
-  #  - localhost
-  tls: []
+  paths: ['/']
+  hosts: 
+    - localhost
+  tls: []  
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
 
-resources: {}
+resources: {} 
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #  cpu: 100m
-  #  memory: 128Mi
-  # requests:
-  #  cpu: 100m
-  #  memory: 128Mi
+  #limits:
+  #  cpu: 2000m
+  #  memory: 12288Mi
+  #requests:
+  #  cpu: 500m
+  #  memory: 8096Mi
 
 nodeSelector: {}
 
@@ -58,12 +59,27 @@ startupCommand: "echo 'Starting up...' && env && gradle --no-daemon --info dataI
 ##
 ## MariaDB chart configuration
 ##
-## https://github.com/helm/charts/blob/master/stable/mariadb/values.yaml
+## https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml
 ##
 mariadb:
   ## Disable MariaDB replication
   replication:
     enabled: false
+
+  ## MariaDB admin credentials
+  ##
+  rootUser:
+    ## MariaDB admin password
+    ## ref: https://github.com/bitnami/bitnami-docker-mariadb#setting-the-root-password-on-first-run
+    ##
+    password: ""
+    ## Option to force users to specify a password. That is required for 'helm upgrade' to work properly.
+    ## If it is not force, a random password will be generated.
+    ##
+    forcePassword: false
+    ## Mount admin password as a file instead of using an environment variable
+    ##
+    injectSecretsAsVolume: false  
 
   ## Create a database and a database user
   ## ref: https://github.com/bitnami/bitnami-docker-mariadb/blob/master/README.md#creating-a-database-user-on-first-run
@@ -74,12 +90,13 @@ mariadb:
     ## If the password is not specified, mariadb will generates a random password
     ##
     password: uportal
-
-  ## MariaDB admin password
-  ## ref: https://github.com/bitnami/bitnami-docker-mariadb/blob/master/README.md#setting-the-root-password-on-first-run
-  ##
-  # rootUser:
-  #   password:
+    ## Option to force users to specify a password. That is required for 'helm upgrade' to work properly.
+    ## If it is not force, a random password will be generated.
+    ##
+    forcePassword: false
+    ## Mount user password as a file instead of using an environment variable
+    ##
+    injectSecretsAsVolume: false
 
   ## Enable persistence using Persistent Volume Claims
   ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
@@ -103,36 +120,27 @@ mariadb:
       skip-name-resolve
       explicit_defaults_for_timestamp
       basedir=/opt/bitnami/mariadb
+      plugin_dir=/opt/bitnami/mariadb/plugin
       port=3306
       socket=/opt/bitnami/mariadb/tmp/mysql.sock
       tmpdir=/opt/bitnami/mariadb/tmp
-      max_allowed_packet=16M
+      max_allowed_packet=256M
       bind-address=0.0.0.0
       pid-file=/opt/bitnami/mariadb/tmp/mysqld.pid
       log-error=/opt/bitnami/mariadb/logs/mysqld.log
       character-set-server=utf8mb4
       collation-server=utf8mb4_unicode_520_ci
-      #
-      default-storage-engine=INNODB
+      # In MariadDB 10.3.22. many of the Barracuda 
+      # settings are default
       lower_case_table_names=1
-      innodb-large-prefix=1
-      innodb_file_format=Barracuda
-      innodb_file_format_check=1
-      innodb_file_format_max=Barracuda
-      innodb_file_per_table=1
-      innodb_strict_mode=ON
-
-      #innodb_buffer_pool_size=2G
-      #innodb_data_home_dir=/var/lib/mysql/
-      #innodb_data_file_path=ibdata1:100M:autoextend
-      #innodb_flush_log_at_trx_commit=1
-      #innodb_log_file_size=256M
-      #innodb_log_buffer_size=64M      
+      innodb_file_per_table=ON
+      innodb_strict_mode=ON  
 
       [client]
       port=3306
       socket=/opt/bitnami/mariadb/tmp/mysql.sock
       default-character-set=utf8mb4
+      plugin_dir=/opt/bitnami/mariadb/plugin      
 
       [manager]
       port=3306

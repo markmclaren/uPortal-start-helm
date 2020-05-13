@@ -17,5 +17,3 @@ spec:
   selector:
     app.kubernetes.io/name: {{ include "uportal-demo-k8s.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
-  restartPolicy: Never  
-    
