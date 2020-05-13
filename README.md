@@ -25,7 +25,7 @@ Currently I have deployed my new Docker uportal-demo-k8s image to [markmclaren/u
 
 #### Prerequisites.
 
-I am assuming you have a working Kubernetes cluster with [Helm/Tiller](https://helm.sh/docs/install/) installed.  I am also assuming you have a working Ingress controller installed (I use the [NGINX Ingress Controller]( https://kubernetes.github.io/ingress-nginx/deploy/) be aware it is a two stage install.)  This is necessary so that an externally accessible URL is available.
+I am assuming you have a working Kubernetes cluster with [Helm 3](https://helm.sh/docs/install/) installed.  I am also assuming you have a working Ingress controller installed (I use the [NGINX Ingress Controller]( https://kubernetes.github.io/ingress-nginx/deploy/) be aware it is a two stage install.)  This is necessary so that an externally accessible URL is available.
 
 ### Installation
 
@@ -44,9 +44,6 @@ Then whilst inside the **uportal-demo-k8s** directory you should be able to depl
 ```
 helm install uportal-demo-k8s --generate-name
 ```
-
-If not specified Helm will automatically generate a release name (e.g. animal based like *[ugly-monkey](https://github.com/helm/helm/issues/4089)*)
-
 You can monitor the start up process using VSCode.  After a little while you should hopefully be able to access your externally accessible IP address by running:
 
 ```
@@ -78,7 +75,7 @@ helm status <release-name>
 You can then undeploy the release using:
 
 ```
-helm delete <release-name>
+helm uninstall <release-name>
 ```
 
 ### Troubleshooting
@@ -91,9 +88,9 @@ VSCode/Kubernetes integration has some really nice features for troubleshooting.
 
 ### Work in progress
 
-This is a proof of concept, I have more to consider in the future:
+This is a proof of concept, there are other features not included:
 
 * Using [Helm secrets](https://github.com/futuresimple/helm-secrets) for encrypting the values in the ConfigMap
-* HTTPS access, maybe using [kube-lego](https://github.com/jetstack/kube-lego)
+* HTTPS access with [cert-manager.io](https://cert-manager.io/docs/installation/kubernetes/)
 * Consider Kubernetes specific deployment options - e.g. [a sidecar full of WARs](https://github.com/kubernetes/examples/tree/master/staging/javaweb-tomcat-sidecar)
 * Consider "production ready" topics, scaling, clustering, session affinity, monitoring etc.
